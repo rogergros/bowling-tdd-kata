@@ -1,0 +1,19 @@
+{
+    "name": "rogergros/bowling-tdd-kata",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "TDD\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Roger Gros",
+            "email": "roger@gros.cat"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "phpunit/phpunit": "^9.5"
+    }
+}

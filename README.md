@@ -53,6 +53,8 @@ The bonus for that frame is **the value of the next two rolls**.
 In the **tenth frame** a player who rolls a **spare** or **strike** is allowed to **roll the extra balls to complete the frame**.
 However, **no more than three balls can be rolled in tenth frame**.
 
+![Bowling result](img/bowling-result.png)
+
 ## Sources
 
 * [Wikipedia - Kata](https://en.wikipedia.org/wiki/Kata)

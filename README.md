@@ -50,6 +50,8 @@ A **strike** is when the player knocks down all **10 pins on his first roll**.
 The frame is then completed with a single roll.
 The bonus for that frame is **the value of the next two rolls**.
 
+A Strike or a Spare can also be called a mark to distinguish from an open frame.
+
 In the **tenth frame** a player who rolls a **spare** or **strike** is allowed to **roll the extra balls to complete the frame**.
 However, **no more than three balls can be rolled in tenth frame**.
 

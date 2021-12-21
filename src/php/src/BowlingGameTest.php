@@ -49,4 +49,15 @@ class BowlingGameTest extends TestCase
 
         $this->assertEquals(18, $score);
     }
+
+    public function testSpare(): void
+    {
+        $this->game->roll(3);
+        $this->game->roll(7);
+        $this->game->roll(3);
+        $this->game->roll(2);
+        $score = $this->game->score();
+
+        $this->assertEquals(18, $score);
+    }
 }

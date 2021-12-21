@@ -117,4 +117,17 @@ class BowlingGameTest extends TestCase
 
         $this->assertEquals(133, $score);
     }
+
+    public function testTenthFrameSpare(): void
+    {
+        for ($i = 0; $i < 9; ++$i) {
+            $this->game->roll(10);
+        }
+        $this->game->roll(9);
+        $this->game->roll(1);
+        $this->game->roll(1);
+        $score = $this->game->score();
+
+        $this->assertEquals(270, $score);
+    }
 }

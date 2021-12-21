@@ -15,6 +15,7 @@ class BowlingGameTest extends TestCase
 
         $this->assertEquals(0, $score);
     }
+
     public function testScoreWithOneThrowAndNoMark(): void
     {
         $game = new BowlingGame();
@@ -22,5 +23,15 @@ class BowlingGameTest extends TestCase
         $score = $game->score();
 
         $this->assertEquals(5, $score);
+    }
+
+    public function testScoreWithTwoThrowsAndNoMark(): void
+    {
+        $game = new BowlingGame();
+        $game->roll(3);
+        $game->roll(4);
+        $score = $game->score();
+
+        $this->assertEquals(7, $score);
     }
 }

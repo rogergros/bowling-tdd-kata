@@ -60,4 +60,14 @@ class BowlingGameTest extends TestCase
 
         $this->assertEquals(18, $score);
     }
+
+    public function testStrike(): void
+    {
+        $this->game->roll(10);
+        $this->game->roll(5);
+        $this->game->roll(2);
+        $score = $this->game->score();
+
+        $this->assertEquals(24, $score);
+    }
 }

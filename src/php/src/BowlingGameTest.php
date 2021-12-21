@@ -80,4 +80,15 @@ class BowlingGameTest extends TestCase
 
         $this->assertEquals(300, $score);
     }
+
+    public function testNearlyPerfectGame(): void
+    {
+        for ($i = 0; $i < 11; ++$i) {
+            $this->game->roll(10);
+        }
+        $this->game->roll(9);
+        $score = $this->game->score();
+
+        $this->assertEquals(299, $score);
+    }
 }

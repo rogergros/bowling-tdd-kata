@@ -91,4 +91,30 @@ class BowlingGameTest extends TestCase
 
         $this->assertEquals(299, $score);
     }
+
+    public function testSampleGame(): void
+    {
+        $this->game->roll(1);
+        $this->game->roll(4);
+        $this->game->roll(4);
+        $this->game->roll(5);
+        $this->game->roll(6);
+        $this->game->roll(4);
+        $this->game->roll(5);
+        $this->game->roll(5);
+        $this->game->roll(10);
+        $this->game->roll(0);
+        $this->game->roll(1);
+        $this->game->roll(7);
+        $this->game->roll(3);
+        $this->game->roll(6);
+        $this->game->roll(4);
+        $this->game->roll(10);
+        $this->game->roll(2);
+        $this->game->roll(8);
+        $this->game->roll(6);
+        $score = $this->game->score();
+
+        $this->assertEquals(133, $score);
+    }
 }

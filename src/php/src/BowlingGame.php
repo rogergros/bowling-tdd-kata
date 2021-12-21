@@ -17,20 +17,37 @@ class BowlingGame
     public function score(): int
     {
         $score = 0;
-        for ($frame = 1; $frame <= 10; ++$frame) {
-            $frameFirstBallNumber = 0 + ($frame - 1) * 2;
-            $frameSecondBallNumber = 1 + (($frame - 1) * 2);
+        $frame = 1;
+        $roll = 0;
 
-            $firstBallKnockedPins = $this->rolls[$frameFirstBallNumber] ?? 0;
-            $secondBallKnockedPins = $this->rolls[$frameSecondBallNumber] ?? 0;
+        while ($frame <= 10) {
+            $frameFirstRollKnockedPins = $this->rolls[$roll] ?? 0;
 
-            $frameScore = $firstBallKnockedPins + $secondBallKnockedPins;
+            if ($frameFirstRollKnockedPins === 10) {
+                $firstFollowingRollKnockedPins = $this->rolls[$roll + 1] ?? 0;
+                $secondFollowingRollKnockedPins = $this->rolls[$roll + 2] ?? 0;
 
-            if ($frameScore === 10) {
-                $frameScore += $this->rolls[$frameSecondBallNumber + 1] ?? 0;
+                $score += $frameFirstRollKnockedPins + $firstFollowingRollKnockedPins + $secondFollowingRollKnockedPins;
+                $roll += 1;
+                ++$frame;
+                continue;
             }
 
-            $score += $frameScore;
+            $frameSecondRollKnockedPins = $this->rolls[$roll + 1] ?? 0;
+
+            if (($frameFirstRollKnockedPins + $frameSecondRollKnockedPins) === 10) {
+                $firstFollowingRollKnockedPins = $this->rolls[$roll + 2] ?? 0;
+
+                $score += $frameFirstRollKnockedPins + $frameSecondRollKnockedPins + $firstFollowingRollKnockedPins;
+
+                $roll += 2;
+                ++$frame;
+                continue;
+            }
+
+            $score += $frameFirstRollKnockedPins + $frameSecondRollKnockedPins;
+            $roll += 2;
+            ++$frame;
         }
 
         return $score;

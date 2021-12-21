@@ -7,11 +7,9 @@ namespace TDD;
 class BowlingGame
 {
     public function roll(int $numberOfKnockedPins) : void {
-        // To be implemented
     }
 
     public function score() : int {
-        // To be implemented
-        return -1;
+        return 0;
     }
 }

@@ -12,6 +12,6 @@ class BowlingGame
 
     public function score() : int {
         // To be implemented
-        return 0;
+        return -1;
     }
 }

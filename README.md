@@ -55,6 +55,8 @@ A Strike or a Spare can also be called a mark to distinguish from an open frame.
 In the **tenth frame** a player who rolls a **spare** or **strike** is allowed to **roll the extra balls to complete the frame**.
 However, **no more than three balls can be rolled in tenth frame**.
 
+[Here](https://www.bowlinggenius.com/) you have an online calculator to help you understand how the game works.
+
 ![Bowling result](img/bowling-result.png)
 
 ## Sources

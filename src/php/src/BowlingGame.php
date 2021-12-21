@@ -17,39 +17,45 @@ class BowlingGame
     public function score(): int
     {
         $score = 0;
-        $frame = 1;
         $roll = 0;
 
-        while ($frame <= 10) {
-            $frameFirstRollKnockedPins = $this->rolls[$roll] ?? 0;
-
-            if ($frameFirstRollKnockedPins === 10) {
-                $firstFollowingRollKnockedPins = $this->rolls[$roll + 1] ?? 0;
-                $secondFollowingRollKnockedPins = $this->rolls[$roll + 2] ?? 0;
-
-                $score += $frameFirstRollKnockedPins + $firstFollowingRollKnockedPins + $secondFollowingRollKnockedPins;
+        for ($frame = 0; $frame < 10; ++$frame) {
+            if ($this->frameIsStrike($roll)) {
+                $score += $this->getKnockedPins($roll, 3);
                 $roll += 1;
-                ++$frame;
-                continue;
-            }
-
-            $frameSecondRollKnockedPins = $this->rolls[$roll + 1] ?? 0;
-
-            if (($frameFirstRollKnockedPins + $frameSecondRollKnockedPins) === 10) {
-                $firstFollowingRollKnockedPins = $this->rolls[$roll + 2] ?? 0;
-
-                $score += $frameFirstRollKnockedPins + $frameSecondRollKnockedPins + $firstFollowingRollKnockedPins;
-
+            } elseif ($this->frameIsSpare($roll)) {
+                $score += $this->getKnockedPins($roll, 3);
                 $roll += 2;
-                ++$frame;
-                continue;
+            } else {
+                $score += $this->getKnockedPins($roll, 2);
+                $roll += 2;
             }
-
-            $score += $frameFirstRollKnockedPins + $frameSecondRollKnockedPins;
-            $roll += 2;
-            ++$frame;
         }
 
         return $score;
+    }
+
+    private function frameIsStrike(int $frameThrowIndex): bool
+    {
+        return
+            isset($this->rolls[$frameThrowIndex])
+            && $this->rolls[$frameThrowIndex] === 10;
+    }
+
+    private function frameIsSpare(int $frameThrowIndex): bool
+    {
+        return
+            isset($this->rolls[$frameThrowIndex], $this->rolls[$frameThrowIndex + 1])
+            && ($this->rolls[$frameThrowIndex] + $this->rolls[$frameThrowIndex + 1]) === 10;
+    }
+
+    private function getKnockedPins(int $throwIndex, int $numberOfThrows): int
+    {
+        $knockedPins = 0;
+        for ($i = $numberOfThrows - 1; $i >= 0; --$i) {
+            $knockedPins += $this->rolls[$throwIndex + $i] ?? 0;
+        }
+
+        return $knockedPins;
     }
 }

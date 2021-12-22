@@ -1,9 +1,9 @@
 export class BowlingGame {
-	public roll() {
+	public roll(): void {
 		throw new Error("Method not implemented.");
 	}
 
-	public score() {
-		throw new Error("Method not implemented.");
+	public score(): number {
+		return -1;
 	}
 }

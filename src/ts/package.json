@@ -6,8 +6,6 @@
 	"scripts": {
 		"test": "cross-env NODE_ENV=test jest",
 		"test:cover": "yarn test --coverage",
-		"test:changed": "yarn test --watch",
-		"test:update": "yarn test -u",
 		"test:watch": "yarn test --watchAll",
 		"lint": "yarn lint:ts",
 		"compile": "yarn lint && yarn compile:ts",
@@ -40,10 +38,6 @@
 				"skipEmpty": true
 			}
 		],
-		"transform": {
-			"^.+\\.ts?$": "ts-jest"
-		},
-		"testRegex": "(\\.|/)(test)\\.(js|tsx?)$",
 		"moduleFileExtensions": [
 			"ts",
 			"js",

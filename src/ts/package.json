@@ -38,6 +38,10 @@
 				"skipEmpty": true
 			}
 		],
+		"transform": {
+			"^.+\\.ts?$": "ts-jest"
+		},
+		"testRegex": "(\\.|/)(test)\\.(js|tsx?)$",
 		"moduleFileExtensions": [
 			"ts",
 			"js",
